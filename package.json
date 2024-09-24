@@ -9,18 +9,37 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@internationalized/date": "^3.5.5",
+    "@radix-ui/react-popover": "^1.1.1",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@react-aria/datepicker": "^3.11.2",
+    "@react-stately/datepicker": "^3.10.2",
+    "@remixicon/react": "^4.2.0",
+    "clsx": "^2.1.1",
+    "country-flag-icons": "^1.5.13",
+    "cx": "^24.9.2",
+    "date-fns": "^3.6.0",
+    "framer-motion": "^11.5.4",
+    "install": "^0.13.0",
+    "next": "14.2.8",
+    "npm": "^10.8.3",
+    "preline": "^2.4.1",
     "react": "^18",
+    "react-day-picker": "^8.10.1",
     "react-dom": "^18",
-    "next": "14.2.8"
+    "tailwind-merge": "^2.5.2",
+    "tailwind-variants": "^0.2.1",
+    "use-sound": "^4.0.3"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@tailwindcss/forms": "^0.5.9",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.8",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.8"
+    "typescript": "^5"
   }
 }

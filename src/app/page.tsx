@@ -1,101 +1,261 @@
-import Image from "next/image";
+"use client";
+import { motion } from "framer-motion";
+import { useContext, useEffect } from "react";
+import Members from "./_components/members";
+import Timezones from "./_components/timezones";
+import { DateContext } from "./_context/date-context";
+import { Selection, SelectionContext } from "./_context/selection-context";
+import { SongContext } from "./_context/song-context";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [selection, _setSelection] = useContext(SelectionContext);
+  const _setValue = useContext(DateContext)[1];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  const songContext = useContext(SongContext);
+  const [duration] = songContext.duration;
+
+  if (!songContext.songs) throw new Error("Songs context not initialized");
+
+  const {
+    aceVideo,
+    akiVideo,
+    jyoruVideo,
+    lynVideo,
+    sheoVideo,
+    playing,
+    target,
+    on,
+    setOn,
+  } = songContext.songs;
+
+  const [hoveringOne, setHoveringOne] = songContext.hovering;
+
+  const emptySelection = () => {
+    // const _stopFuncs = [
+    //   stopElfenlied,
+    //   stopFortheglory,
+    //   stopIdol,
+    //   stopRedsun,
+    //   stopSakamoto,
+    //   stopUnravel,
+    // ];
+    // stopFuncs.current.forEach((x) => x());
+    // _stopFuncs.forEach((x) => x());
+    // stopFuncs.current = [];
+    _setSelection(Selection.empty);
+    _setValue({ date: undefined, bias: 0 });
+    setHoveringOne(null);
+    setOn(false);
+  };
+
+  // useEffect(() => {
+  //   if (!hoveringOne) {
+  //     if (typeof jyoruVideo?.current?.currentTime === "number") {
+  //       jyoruVideo.current.pause();
+  //     }
+  //     if (typeof lynVideo?.current?.currentTime === "number") {
+  //       lynVideo.current.pause();
+  //     }
+  //     if (typeof aceVideo?.current?.currentTime === "number") {
+  //       aceVideo.current.pause();
+  //     }
+  //   }
+  // }, [hoveringOne]);
+
+  useEffect(() => {
+    if (typeof aceVideo?.current?.currentTime === "number") {
+      //&& hoveringOne
+      // if (target === "sakamoto") aceVideo.current.currentTime = 24;
+      if (target === "sakamoto" && playing === "sakamoto")
+        aceVideo.current.play();
+    }
+    if (typeof jyoruVideo?.current?.currentTime === "number") {
+      //&& hoveringOne
+      if (target === "idol" && playing === "idol") jyoruVideo.current.play();
+    }
+    if (typeof lynVideo?.current?.currentTime === "number") {
+      //&& hoveringOne
+      if (target === "redsun" && playing === "redsun") lynVideo.current.play();
+    }
+    if (typeof sheoVideo?.current?.currentTime === "number") {
+      //&& hoveringOne
+      if (target === "fortheglory" && playing === "fortheglory")
+        sheoVideo.current.play();
+    }
+    if (typeof akiVideo?.current?.currentTime === "number") {
+      //&& hoveringOne
+      if (target === "elfenlied" && playing === "elfenlied")
+        akiVideo.current.play();
+    }
+  }, [
+    playing,
+    hoveringOne,
+    aceVideo,
+    akiVideo,
+    jyoruVideo,
+    sheoVideo,
+    lynVideo,
+    target,
+  ]);
+
+  return (
+    <motion.main
+      className="relative min-h-screen min-w-full flex flex-col bg-zinc-700 text-white p-6 sm:p-12 justify-center items-center max-sm:!bg-[#3f3f46]"
+      animate={{
+        backgroundColor:
+          on && selection === Selection.empty
+            ? "rgba(63 63 70 0)"
+            : "rgba(63 63 70 1)",
+      }}
+      transition={{
+        duration: duration / 1000,
+      }}
+    >
+      <motion.video
+        ref={akiVideo}
+        className="absolute h-full w-full z-[5] opacity-0 object-cover max-sm:!opacity-0"
+        animate={{
+          opacity:
+            selection === Selection.empty && on && target === "elfenlied"
+              ? 1
+              : 0,
+        }}
+        transition={{
+          duration: duration / 1000,
+        }}
+        autoPlay
+        muted
+        loop
+      >
+        <source src="/aki.mp4" type="video/mp4" />
+      </motion.video>
+      <motion.video
+        ref={aceVideo}
+        className="absolute h-full w-full z-[5] opacity-0 object-cover max-sm:!opacity-0"
+        animate={{
+          opacity:
+            selection === Selection.empty && on && target === "sakamoto"
+              ? 1
+              : 0,
+        }}
+        transition={{
+          duration: duration / 1000,
+        }}
+        autoPlay
+        muted
+        loop
+      >
+        <source src="/ace.mp4" type="video/mp4" />
+      </motion.video>
+      <motion.video
+        ref={jyoruVideo}
+        className="absolute h-full w-full z-[5] opacity-0 object-cover max-sm:!opacity-0"
+        animate={{
+          opacity:
+            selection === Selection.empty && on && target === "idol" ? 1 : 0,
+        }}
+        transition={{
+          duration: duration / 1000,
+        }}
+        autoPlay
+        muted
+        loop
+      >
+        <source src="/jyoru.mp4" type="video/mp4" />
+      </motion.video>
+      <motion.video
+        ref={lynVideo}
+        className="absolute h-full w-full z-[5] opacity-0 object-cover max-sm:!opacity-0"
+        animate={{
+          opacity:
+            selection === Selection.empty && on && target === "redsun" ? 1 : 0,
+        }}
+        transition={{
+          duration: duration / 1000,
+        }}
+        autoPlay
+        muted
+        loop
+      >
+        <source src="/lyn.mp4" type="video/mp4" />
+      </motion.video>
+      <motion.video
+        ref={sheoVideo}
+        className="absolute h-full w-full z-[5] opacity-0 object-cover max-sm:!opacity-0"
+        animate={{
+          opacity:
+            selection === Selection.empty && on && target === "fortheglory"
+              ? 1
+              : 0,
+        }}
+        transition={{
+          duration: duration / 1000,
+        }}
+        autoPlay
+        muted
+        loop
+      >
+        <source src="/sheo-compressed.mp4" type="video/mp4" />
+      </motion.video>
+      <motion.div
+        className="absolute h-full w-full bg-blue-200 z-[5] opacity-0 max-sm:!opacity-0"
+        animate={{
+          opacity:
+            on && selection === Selection.empty && target === "unravel" ? 1 : 0,
+        }}
+        transition={{
+          duration: duration / 1000,
+        }}
+        style={{
+          backgroundImage: "url(/sheo.jpg)",
+          backgroundPosition: "bottom center",
+          backgroundSize: "cover",
+        }}
+      ></motion.div>
+      {selection === Selection.empty && (
+        <>
+          <motion.h1
+            animate={{
+              opacity: on ? 0 : 1,
+            }}
+            transition={{
+              duration: duration / 1000,
+            }}
+            className="text-center text-4xl z-10 font-semibold max-sm:!opacity-100"
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+            Select your time zone
+          </motion.h1>
+          <Members />
+        </>
+      )}
+      {selection !== Selection.empty && (
+        <h1
+          onClick={emptySelection}
+          className="mb-5 z-10 font-bold text-3xl max-sm:text-2xl text-center"
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          Time Zone Converter
+        </h1>
+      )}
+      {selection !== Selection.empty && (
+        <Timezones selectedMember={selection} />
+      )}
+      {selection !== Selection.empty && (
+        <button
+          onClick={emptySelection}
+          className="mt-3 z-10 hover:text-[#7e72ff] font-semibold"
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          Back
+        </button>
+      )}
+      <motion.div
+        animate={{
+          opacity: on && selection === Selection.empty ? 0 : 1,
+        }}
+        transition={{
+          duration: duration / 1000,
+        }}
+        className="absolute flex-1 bg-neko-girl bg-neko-girl-corner bg-no-repeat h-[75%] w-0 lg:w-full bottom-0 right-0 max-sm:!opacity-100"
+      />
+    </motion.main>
   );
 }
