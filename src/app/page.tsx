@@ -168,7 +168,7 @@ export default function Home() {
         loop
       >
         <source
-          src="https://www.flickr.com/photos/201471884@N05/shares/1x69fdQA86"
+          src="https://live.staticflickr.com/video/54018400564/51ec61bf56/1080p.mp4?s=eyJpIjo1NDAxODQwMDU2NCwiZSI6MTcyNzE3ODg1NCwicyI6IjY4NmI4MzZhMWI0Mjc4ZjFiOTg2ODAwYTAyODI1NjRkNmE4ZWEzNTciLCJ2IjoxfQ"
           type="video/mp4"
         />
       </motion.video>
