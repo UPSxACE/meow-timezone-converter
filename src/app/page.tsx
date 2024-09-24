@@ -127,7 +127,10 @@ export default function Home() {
         muted
         loop
       >
-        <source src="/aki.mp4" type="video/mp4" />
+        <source
+          src="https://live.staticflickr.com/video/54018504270/3f7e9f144c/1080p.mp4?s=eyJpIjo1NDAxODUwNDI3MCwiZSI6MTcyNzE3ODU1OCwicyI6IjQ5YmNlMzNkN2E4ZTUyMWYzM2ViZTExMWUwOTQwMjJkNjU1YzRmMmEiLCJ2IjoxfQ"
+          type="video/mp4"
+        />
       </motion.video>
       <motion.video
         ref={aceVideo}
@@ -145,7 +148,10 @@ export default function Home() {
         muted
         loop
       >
-        <source src="/ace.mp4" type="video/mp4" />
+        <source
+          src="https://live.staticflickr.com/video/54017163927/4ec1842020/1080p.mp4?s=eyJpIjo1NDAxNzE2MzkyNywiZSI6MTcyNzE3ODUzNCwicyI6ImU4ZWRiOGJjNTQ0YWVmM2YzOGY3OTA2Y2Q3ZTdmZTcwOTkzMTQ5OTQiLCJ2IjoxfQ"
+          type="video/mp4"
+        />
       </motion.video>
       <motion.video
         ref={jyoruVideo}
@@ -161,7 +167,10 @@ export default function Home() {
         muted
         loop
       >
-        <source src="/jyoru.mp4" type="video/mp4" />
+        <source
+          src="https://www.flickr.com/photos/201471884@N05/shares/1x69fdQA86"
+          type="video/mp4"
+        />
       </motion.video>
       <motion.video
         ref={lynVideo}
@@ -177,7 +186,10 @@ export default function Home() {
         muted
         loop
       >
-        <source src="/lyn.mp4" type="video/mp4" />
+        <source
+          src="https://live.staticflickr.com/video/54017165887/ac801b6cdb/1080p.mp4?s=eyJpIjo1NDAxNzE2NTg4NywiZSI6MTcyNzE3ODQ4NiwicyI6IjA3MDk5Njc4ODcxMTMzMzgyNWFlN2NkOWJlZGI3YjkzMTg3NzE2NDMiLCJ2IjoxfQ"
+          type="video/mp4"
+        />
       </motion.video>
       <motion.video
         ref={sheoVideo}
@@ -195,7 +207,10 @@ export default function Home() {
         muted
         loop
       >
-        <source src="/sheo-compressed.mp4" type="video/mp4" />
+        <source
+          src="https://live.staticflickr.com/video/54017165982/7b27a9cdee/1080p.mp4?s=eyJpIjo1NDAxNzE2NTk4MiwiZSI6MTcyNzE3ODU4MSwicyI6ImYyYjMzMDNhMDAzNGM5ZjI4ZTI5ZGU4MTIwZTExYjUyZDZlNGIzMDIiLCJ2IjoxfQ"
+          type="video/mp4"
+        />
       </motion.video>
       <motion.div
         className="absolute h-full w-full bg-blue-200 z-[5] opacity-0 max-sm:!opacity-0"
