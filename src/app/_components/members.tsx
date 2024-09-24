@@ -254,7 +254,7 @@ export default function Members() {
         jyoruVideo.current.pause();
       }
     }
-    if (newTargtIdol) sound.seek(102);
+    if (newTargtIdol) sound.seek(101.75);
 
     const newTargetSakamoto = sound.volume() === 0 && target === "sakamoto";
     if (
@@ -262,7 +262,7 @@ export default function Members() {
       typeof aceVideo?.current?.currentTime === "number"
     ) {
       if (typeof aceVideo?.current?.currentTime === "number") {
-        aceVideo.current.currentTime = 23.5;
+        aceVideo.current.currentTime = 23.75;
         aceVideo.current.pause();
       }
     }
