@@ -208,7 +208,7 @@ export default function Home() {
         loop
       >
         <source
-          src="https://live.staticflickr.com/video/54017165982/7b27a9cdee/1080p.mp4?s=eyJpIjo1NDAxNzE2NTk4MiwiZSI6MTcyNzE3ODU4MSwicyI6ImYyYjMzMDNhMDAzNGM5ZjI4ZTI5ZGU4MTIwZTExYjUyZDZlNGIzMDIiLCJ2IjoxfQ"
+          src="https://live.staticflickr.com/video/54017165982/7b27a9cdee/1080p.mp4?s=eyJpIjo1NDAxNzE2NTk4MiwiZSI6MTcyNzE4MjA0OCwicyI6ImRhNjU1MTM1YjA4ZGQ2ZjZjOTdiNzlmMTljYzQwOGVjNTAzMjViYzEiLCJ2IjoxfQ"
           type="video/mp4"
         />
       </motion.video>
