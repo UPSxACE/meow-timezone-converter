@@ -128,7 +128,7 @@ export default function Home() {
         loop
       >
         <source
-          src="https://live.staticflickr.com/video/54018504270/3f7e9f144c/1080p.mp4?s=eyJpIjo1NDAxODUwNDI3MCwiZSI6MTcyNzE3ODU1OCwicyI6IjQ5YmNlMzNkN2E4ZTUyMWYzM2ViZTExMWUwOTQwMjJkNjU1YzRmMmEiLCJ2IjoxfQ"
+          src="https://videos.eduardobotelho.com/aki.mp4"
           type="video/mp4"
         />
       </motion.video>
@@ -149,7 +149,7 @@ export default function Home() {
         loop
       >
         <source
-          src="https://live.staticflickr.com/video/54017163927/4ec1842020/1080p.mp4?s=eyJpIjo1NDAxNzE2MzkyNywiZSI6MTcyNzE3ODUzNCwicyI6ImU4ZWRiOGJjNTQ0YWVmM2YzOGY3OTA2Y2Q3ZTdmZTcwOTkzMTQ5OTQiLCJ2IjoxfQ"
+          src="https://videos.eduardobotelho.com/ace.mp4"
           type="video/mp4"
         />
       </motion.video>
@@ -168,7 +168,7 @@ export default function Home() {
         loop
       >
         <source
-          src="https://live.staticflickr.com/video/54018400564/51ec61bf56/1080p.mp4?s=eyJpIjo1NDAxODQwMDU2NCwiZSI6MTcyNzE3ODg1NCwicyI6IjY4NmI4MzZhMWI0Mjc4ZjFiOTg2ODAwYTAyODI1NjRkNmE4ZWEzNTciLCJ2IjoxfQ"
+          src="https://videos.eduardobotelho.com/jyoru.mp4"
           type="video/mp4"
         />
       </motion.video>
@@ -187,7 +187,7 @@ export default function Home() {
         loop
       >
         <source
-          src="https://live.staticflickr.com/video/54017165887/ac801b6cdb/1080p.mp4?s=eyJpIjo1NDAxNzE2NTg4NywiZSI6MTcyNzE3ODQ4NiwicyI6IjA3MDk5Njc4ODcxMTMzMzgyNWFlN2NkOWJlZGI3YjkzMTg3NzE2NDMiLCJ2IjoxfQ"
+          src="https://videos.eduardobotelho.com/lyn.mp4"
           type="video/mp4"
         />
       </motion.video>
@@ -208,7 +208,7 @@ export default function Home() {
         loop
       >
         <source
-          src="https://live.staticflickr.com/video/54017165982/7b27a9cdee/1080p.mp4?s=eyJpIjo1NDAxNzE2NTk4MiwiZSI6MTcyNzE4NDEyNCwicyI6IjA2ODgwYTc1MWMzOTFmMzlhZWVkMGMxZDI3OTcyOWY1NmY3MjZmYzgiLCJ2IjoxfQ"
+          src="https://videos.eduardobotelho.com/sheo-compressed.mp4"
           type="video/mp4"
         />
       </motion.video>
